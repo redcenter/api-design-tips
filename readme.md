@@ -129,6 +129,11 @@ It makes it easier for everybody. Do not listen to people who tell you ‘pretty
 
 ![I feel pretty](pretty.gif "Pretty")
 
+####HAL & Json
+There is something nice called HAL (Hypertext Application Language), which (sort off) defines rules for your JSON or XML body. So the need of documentation becomes less, because the API becomes even more self-explanatory. With that description I really do not do justice to the principle of HAL, so read some articles about it and decide if it's something for your project.
+
+More information from Mike Kelly, the initiator of HAL: http://stateless.co/hal_specification.html
+
 [back to contents](#user-content-contents)
 
 ------
