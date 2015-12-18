@@ -15,7 +15,7 @@ First we have to check for readers who landed on this page, because of a typo. I
 
 ![Aapie](monkey.jpg "Aap")
 
-##<TL;DR>##
+##TL;DR##
 
 
 For those who are in a hurry and only want the highlights, here is your TL;DR (or like we used to say in a different era: the management summary).
@@ -38,7 +38,7 @@ Is your team building an API? Force them to start with a proper API design. Here
 Make sure your API team says ‘yes’ to every item and you are good to go!
 
 
-##<Knowledge check>##
+##Knowledge check##
 
 * You know what an API is
 * You know why the following requirement is ridiculous: *"The API must be responsive and compatible for all major browsers"*
@@ -54,19 +54,19 @@ Well, let’s start.
 
 ##Contents
 
-* [REST is the best](#markdown-header-rest-is-the-best)
-* [Don't know your user!](#markdown-header-do-not-know-your-user)
-* [JSON rules](#markdown-header-json-rules)
-* [Endpoints are the beginning](#markdown-header-endpoints-are-the-beginning)
-* [Use an EMM](#markdown-header-use-an-emm)
-* [Use the status codes](#markdown-header-use-the-status-codes)
-* [Use versioning from the start](#markdown-header-use-versioning-from-the-start)
-* [Only HTTPS](#markdown-header-only-https)
-* [API keys are the key](#markdown-header-api-keys-are-the-key)
-* [Hypermedia is not a hype](#markdown-header-hypermedia-is-not-a-hype)
-* [Be eloquent and verbose](#markdown-header-be-eloquent-and-verbose)
-* [Query params are king!](#markdown-header-query-params-are-king)
-* [Conclusion](#markdown-header-conclusion)
+* [REST is the best](#user-content-rest-is-the-best)
+* [Don't know your user!](#user-content-do-not-know-your-user)
+* [JSON rules](#user-content-json-rules)
+* [Endpoints are the beginning](#user-content-endpoints-are-the-beginning)
+* [Use an EMM](#user-content-use-an-emm)
+* [Use the status codes](#user-content-use-the-status-codes)
+* [Use versioning from the start](#user-content-use-versioning-from-the-start)
+* [Only HTTPS](#user-content-only-https)
+* [API keys are the key](#user-content-api-keys-are-the-key)
+* [Hypermedia is not a hype](#user-content-hypermedia-is-not-a-hype)
+* [Be eloquent and verbose](#user-content-be-eloquent-and-verbose)
+* [Query params are king!](#user-content-query-params-are-king)
+* [Conclusion](#user-content-conclusion)
 
 ------
 
@@ -80,7 +80,7 @@ Do you want to know more about REST, these are my favorites:
 * A video from the CTO of Stormpath (1:24) : https://youtu.be/hdSrT4yjS1g
 * The API bible from Brian Mulloy: http://apigee.com/about/resources/ebooks/web-api-design
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -99,7 +99,7 @@ So treat your users, like they are anonymous...
 
 ![Anonymous](anonymous.gif "Anon")
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -129,7 +129,7 @@ It makes it easier for everybody. Do not listen to people who tell you ‘pretty
 
 ![I feel pretty](pretty.gif "Pretty")
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -165,7 +165,7 @@ So all the bad endpoints in the example (and the needs behind) can be fulfilled 
 
 If this still confuses you a bit, don’t worry. Read more articles on REST (like the ones I shared earlier in this article) and you will get it.
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -194,7 +194,7 @@ Example: an API to facilitate a webshop probably does not need an endpoint to de
 
 So I would always start with a detailed EMM. It is a great framework to communicate your ideas to all stakeholders and structure your project.
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -212,7 +212,7 @@ And, make sure you always include the following codes somewhere in your API as a
 
 For a list of all HTTP status codes, click here: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -224,7 +224,7 @@ Always have the version number in the endpoint tree, like...
 
 Trying to add this after people start using your API will be… difficult. Trust me.
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -233,14 +233,14 @@ From the start use HTTPS for all servers. No need to explain, just do it.
 
 ![HTTPS](https.jpg "HTTPS")
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
 ##API keys are the key
 Please consider using API keys for people to use the API, instead of user / password combinations. It is much easier to give a user multiple API keys for multiple uses, it’s more secure, you can revoke access easier without changing the user credentials, etc.
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -294,7 +294,7 @@ And you, as an API builder, can decide to change one of the endpoint without pro
 
 Again: this is just a small example to give you an idea about this concept. There is much more to say about hypermedia, HATEOAS, etc...
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -321,7 +321,7 @@ versus
 
 Really, it is those details that make your API awesome to use!
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -438,7 +438,7 @@ Some API designers might say: *“Why not always expand all nested resources?”
 
 And I say *“Why introduce (possibly) massive responses if extra that data is not always consumed? Make it easy for your users to expand when they need it.”*
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
 
 ------
 
@@ -456,4 +456,4 @@ Good luck designing your API and let me know about your experiences!
 
 And many thanks to Luca Sottani for proof reading it and giving his feedback. 
 
-[back to contents](#markdown-header-contents)
+[back to contents](#user-content-contents)
