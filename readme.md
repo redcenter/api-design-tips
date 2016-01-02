@@ -436,7 +436,7 @@ What if you could get it in the original request? Let's do that...
        "amount": 201.99,
        "customer": {
           "id": "54321",
-          "href": "https://api.domain.com/v1/customer/54321",
+          "href": "https://api.domain.com/v1/customers/54321",
           "firstName": "Jay",
           "lastName": "Fray",
           "gender": "male"
@@ -478,7 +478,7 @@ get the customer id from the request and do a second request (to get the for the
  
 Step 3:
 
-    GET /v1/customer/54321
+    GET /v1/customers/54321
 
 ####My preference?
 Based on my own preference, I would always facilitate scenario 1. Even if scenario one must do a JOIN to the customer table, it will be much faster than scenario two and more user-friendly! 
