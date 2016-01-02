@@ -5,6 +5,8 @@ December 15th, 2015
 Jeroen Freijer <jeroen@redcenter.nl>
 
 
+Based on my personal experiences designing and building web API's for several companies, I have written down my own API checklist. Be aware, these are just my experiences and preferences. Please do not consider this the ultimate API checklist. Every API and every company is different, so your own implementation might be completely different than the one I propose below... :-) 
+
 ##Audience check##
 
 First we have to check for readers who landed on this page, because of a typo. I don’t want to confuse or disappoint them.
@@ -134,6 +136,12 @@ There is something nice called HAL (Hypertext Application Language), which (sort
 
 More information from Mike Kelly, the initiator of HAL: http://stateless.co/hal_specification.html
 
+
+####Json-schema.org
+Stefan Aichholzer (https://github.com/aichholzer) had a great tip about another possibility: http://json-schema.org/
+
+I have never used it, but be sure to check it out!
+
 [back to contents](#user-content-contents)
 
 ------
@@ -148,17 +156,17 @@ EXAMPLE
     
     Bad
     /v1/allProducts
-    /v1/productById
+    /v1/productByName
     /v1/productsByClient
     /v1/clientListForDashboard
 
-I can hear a question coming up: *“Why is productById a bad endpoint? How can the client ask for a specific product?”*
+I can hear a question coming up: *“Why is productByName a bad endpoint? How can I get data for a specific product?”*
 
 The answer lies in the good endpoint example: `/v1/products/`
 
-If you get more familiar with REST, you will see the idea behind this endpoint. The endpoint returns all products by default. If you only want a specific product based on an id (bad example 2), you add a filter for that attribute.
+If you get more familiar with REST, you will see the idea behind this endpoint. The endpoint returns all products by default. If you only want a specific product based on an name (bad example 2), you add a filter for that attribute.
 
-Like this: `/v1/products/?id=2345`
+Like this: `/v1/products/?name=xbq`
 
 If you want all products for a specific client (bad endpoint 3), you add a filter for client:
 
@@ -408,7 +416,7 @@ Let’s start with an example (again)... We have a order endpoint
        "amount": 201.99,
        "customer": {
           "id": "54321",
-          "href": "https://api.domain.com/v1/customer/54321"
+          "href": "https://api.domain.com/v1/customers/54321"
        }
     }
 ```
@@ -437,11 +445,43 @@ What if you could get it in the original request? Let's do that...
 ```
 
 
-So the expand parameter makes it possible to expand nested resources and save on additional requests.
+So the expand parameter makes it possible to expand nested resources and save on additional requests. This does not mean the customers endpoint can be skipped. No, that endpoint is still available (as you can see in the href-link of the nested resource).
 
-Some API designers might say: *“Why not always expand all nested resources?”* 
+####Possible discussion numero uno!
+About this expand parameter, some API designers might say: *“Why not always expand all nested resources?”* 
 
 And I say *“Why introduce (possibly) massive responses if extra that data is not always consumed? Make it easy for your users to expand when they need it.”*
+
+####Possible discussion numero dos!
+About this expand parameter, some API designers might say: *“Why do this? The nested resource is available through it's own endpoint. Why introduce this extra entrypoint to that resource? It's against the single responsibility principle, etc. Just let the user make an extra (= second) request to the customer-endpoint if he/she wants to know more about that linked customer. And it will be more efficient for your query, because you do not need to join to the customer table.”* 
+
+And I say *“I am all for creating great code, SOLID principles, query efficiency etc. But it MUST NOT stand in the way of being user-friendly!”*
+
+Consider our example: getting data for order 12345 and (also) displaying data about the customer. 
+
+#####Scenario 1 (my example)
+
+Step 1:
+
+    GET /v1/orders/12345?expand=customer.firstName
+
+Done!
+
+#####Scenario two?
+
+Step 1:
+
+    GET /v1/orders/12345
+
+Step 2:
+get the customer id from the request and do a second request (to get the for the first name)
+ 
+Step 3:
+
+    GET /v1/customer/54321
+
+####My preference?
+Based on my own preference, I would always facilitate scenario 1. Even if scenario one must do a JOIN to the customer table, it will be much faster than scenario two and more user-friendly! 
 
 [back to contents](#user-content-contents)
 
